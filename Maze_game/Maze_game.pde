@@ -1,44 +1,39 @@
-PImage Maze;
+int enemyX;
+int enemyY;
 int x;
 int y;
 
+PImage Slime;
 
 void setup(){
 size(1200,700);
-  
-  
-  Maze = loadImage("maze.jpg"); 
-  
-  y=50;
-  x=50;
-  
-  
+
+Slime = loadImage("Slime.png");
+
+x=50;
+y=50;
+enemyX=100;
+enemyY=100;
+
+
 }
-
-
-
 
 void draw(){
- image(Maze, 0,0,1200,700); 
-  rect(x,y,25,25);
-      
-      if (keyCode == RIGHT) {
-      x = x + 10;
+  background(255);
+ image(Slime ,enemyX ,enemyY ,25,25);
+   if (enemyX > X) {
+      enemyX-=1;
+    }
+    if (enemyX < X) {
+      enemyX+=1;
+    }
+    if (enemyY < Y) {
+      enemyY+=1;
+    }
+    if (enemyY > Y) {
+      enemyY-=1;
     }
 
-    if (keyCode == LEFT) {
-      x = x-10;
-    }
-
-    if (keyCode == UP) {
-      y = y -10;
-    }
-
-    if (keyCode == DOWN) {
-      y = y+10;
-    }
-  
   
   
 }
-  
