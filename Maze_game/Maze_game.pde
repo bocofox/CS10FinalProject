@@ -1,63 +1,53 @@
-<<<<<<< HEAD
-int enemyX;
-int enemyY;
+PImage Maze;
+PImage Title;
 int x;
 int y;
-
-PImage Slime;
-
-void setup(){
-size(1200,700);
-
-Slime = loadImage("Slime.png");
-
-x=50;
-y=50;
-enemyX=100;
-enemyY=100;
+int gameScreen = 1;
 
 
+void setup() {
+  size(1280, 720);
+
+
+  Maze = loadImage("maze.jpg"); 
+  Title = loadImage("title_screen.png");
+
+  y=50;
+  x=50;
 }
 
-void draw(){
-  background(255);
- image(Slime ,enemyX ,enemyY ,25,25);
-   if (enemyX > X) {
-      enemyX-=1;
+
+
+
+void draw() {
+  if (gameScreen == 1) {
+    fill(0);
+    rect(0,0,1280,720);
+    image(Title, 300, 100);
+    if (keyCode == ENTER) {
+      gameScreen = 2;
     }
-    if (enemyX < X) {
-      enemyX+=1;
-    }
-    if (enemyY < Y) {
-      enemyY+=1;
-    }
-    if (enemyY > Y) {
-      enemyY-=1;
+  }
+  if (gameScreen == 2) {
+    image(Maze, 0, 0, 1280, 720); 
+    fill(255);
+    stroke(0);
+    rect(x, y, 25, 25);
+
+    if (keyCode == RIGHT) {
+      x = x + 10;
     }
 
-  
-  
-=======
-//Andrew Part, Bo CoFox, Noah Ballog
+    if (keyCode == LEFT) {
+      x = x - 10;
+    }
 
-void setup(){
-  size (600, 600);
-  background(0);
-  noStroke();
-}
+    if (keyCode == UP) {
+      y = y - 10;
+    }
 
-void draw(){
-  fill(213);
- rect(0,0, 600, 16);
- rect(0,0, 16, 600);
- rect(0, 584, 600, 16);
- rect(584, 0, 16, 600);
- 
- fill(172);
- rect(64, 64, 80, 80);
- rect(64, 456, 80, 80);
- rect(456, 64, 80, 80);
- rect(456, 456, 80, 80);
- rect(260, 260, 80, 80);
->>>>>>> 2981c172b811c26bc06197585ddf01158eefe17d
+    if (keyCode == DOWN) {
+      y = y + 10;
+    }
+  }
 }
